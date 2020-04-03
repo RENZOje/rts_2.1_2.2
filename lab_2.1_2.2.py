@@ -60,16 +60,14 @@ def fft(signal):
 signal = create_signals(n, N, omega)
 plot = create_plot(signal, "t", "x(t)", "Signal", "X(t)", "blue")
 plt.grid()
-plt.savefig('signal.png')
-
+plt.show()
 
 spectr_dft = dft(signal)
 polar_spectr_dft = np.array(list(map(lambda x: cmath.polar(x), spectr_dft)))[:, 0]
 ampl_dft = create_plot(polar_spectr_dft, "p", "A(p)", "Polar Spectr DFT", "Amplitude")
 plt.legend(handles=[ampl_dft], loc='upper right')
 plt.grid()
-plt.savefig('DFT.png')
-
+plt.show()
 
 
 spectr_fft = fft(signal)
@@ -77,4 +75,4 @@ polar_spectr_fft = np.array(list(map(lambda x: cmath.polar(x), spectr_fft)))[:, 
 ampl_fft = create_plot(polar_spectr_fft, "p", "A(p)", "Polar Spectr FFT", "Amplitude")
 plt.legend(handles=[ampl_fft], loc='upper right')
 plt.grid()
-plt.savefig('FFT.png')
+plt.show()
